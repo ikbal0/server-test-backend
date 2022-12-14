@@ -17,12 +17,13 @@ module.exports = {
             const images = new Images({
                 name: naming,
             });
-            const savedImages = await images.save()
+            // const savedImages = await images.save()
             return res.status(200).json({
                 status: true,
                 message: 'Upload success',
                 data: {
-                    file: savedImages
+                    // file: savedImages
+                    data: 'img'
                 }
             })
         } catch (error) {
