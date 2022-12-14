@@ -9,9 +9,9 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080
 
-app.use(express.json());
-app.use(cors())
-.use(fileUpload)
+app.use(express.json())
+.use(cors())
+.use(fileUpload())
 .listen(
     PORT,
     () => console.log(`server is online on http://localhost:${PORT}`)
