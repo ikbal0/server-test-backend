@@ -6,10 +6,8 @@ const PORT = process.env.PORT || 8080
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    console.log(req.user)
-    res.status(200).json({message: 'get success'})
-})
+const createRoute = require('./routes/create');
+app.use('/create', createRoute)
 
 app.listen(
     PORT,
