@@ -19,4 +19,4 @@ app.use(express.json())
 
 app.use('/create', createRoute)
 
-mongoose.connect(process.env.MONGODB_URI, () => console.log('connect to mongodb!'))
+// mongoose.connect(process.env.MONGODB_URI, () => console.log('connect to mongodb!'))
