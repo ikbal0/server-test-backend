@@ -1,6 +1,6 @@
 const path = require('path')
 const sharp = require('sharp')
-// const Images = require('../models/image')
+const Images = require('../models/image')
 
 module.exports = {
     upload: async (req, res) => {
