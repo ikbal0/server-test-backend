@@ -15,14 +15,3 @@ app.listen(
     PORT,
     () => console.log(`server is online on http://localhost:${PORT}`)
 )
-
-
-
-
-
-
-
-
-
-
-
