@@ -1,4 +1,5 @@
 const express = require('express');
+const UploadController = require('../controllers/UploadController');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -13,5 +14,7 @@ router.get('/', async (req, res) => {
         res.json({message: err})
     }
 })
+
+router.post('/', UploadController.upload)
 
 module.exports = router;
