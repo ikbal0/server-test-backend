@@ -6,12 +6,14 @@ const path = require('path')
 const sharp = require('sharp')
 const Image = require('../models/image')
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
+    const id = req.params.id
     try {
-        return res.status(200).send({
-            message: 'success',
+        const images = await Image.findOne({_id:id}).exec()
+        return res.status(200).json({
+            status: true,
             data: {
-                route: 'edit'
+                file: images
             }
         })
     } catch (err) {
