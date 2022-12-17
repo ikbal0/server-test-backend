@@ -33,5 +33,23 @@ module.exports = {
                 message: error
             })
         }
+    },
+    cart: async (req, res) => {
+        try {
+            const viewImages = await Images.find({})
+            return res.status(200).json({
+                status: true,
+                data: {
+                    cart: [
+                        { "id": 1, "product_name": "Sausages",    "icon": "sausage",    "total": { "USD": 3.69, "NOK": 26.68 }, "type": "meat", "qty": 2}
+                    ]  
+                }
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: false,
+                message: error
+            })
+        }
     }
 }
