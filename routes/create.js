@@ -33,5 +33,6 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', UploadController.upload)
 router.post('/cart', UploadController.cart)
+router.post('/order', UploadController.order)
 
 module.exports = router;

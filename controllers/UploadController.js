@@ -72,5 +72,29 @@ module.exports = {
                 message: error
             })
         }
+    },
+    order: async (req, res) => {
+        try {
+            const body = req.body
+            // const cart = new Cart({
+            //     product_name: body.name,
+            //     icon: body.icon,
+            //     price: body.price,
+            //     qty: body.qty,
+            //     total: body.total,
+            //     type: body.type
+            // });
+            // const savedCart = await cart.save()
+            return res.status(200).json({
+                status: true,
+                message: 'Post success',
+                body
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: false,
+                message: error
+            })
+        }
     }
 }
