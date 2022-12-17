@@ -1,6 +1,7 @@
 const path = require('path')
 const sharp = require('sharp')
 const Images = require('../models/image')
+const Cart = require('../models/cart')
 
 module.exports = {
     upload: async (req, res) => {
@@ -43,17 +44,19 @@ module.exports = {
     cart: async (req, res) => {
         try {
             const body = req.body
-            // const images = new Images({
-            //     name: naming,
-            // });
-            // const savedImages = await images.save()
+            const cart = new Cart({
+                product_name: body.name,
+                icon: body.icon,
+                price: body.price,
+                qty: body.qty,
+                total: body.total,
+                type: body.type
+            });
+            const savedCart = await cart.save()
             return res.status(200).json({
                 status: true,
-                message: 'Upload success',
-                data: {
-                    // file: savedImages
-                    body: body
-                }
+                message: 'Post success',
+                data: savedCart
             })
             // console.log(req.files)
             // return res.status(200).json({
