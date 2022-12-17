@@ -1,5 +1,6 @@
 const Cart = require('../models/cart')
 const Images = require('../models/image')
+const Order = require('../models/order')
 
 module.exports = {
     view: async (req, res) => {
@@ -45,6 +46,22 @@ module.exports = {
                     cart: [
                         { "id": 1, "product_name": "Sausages",    "icon": "sausage",  "price": { "USD": 3.69, "NOK": 26.68 },  "total": { "USD": 3.69, "NOK": 26.68 }, "type": "meat", "qty": 2}
                     ]  
+                }
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: false,
+                message: error
+            })
+        }
+    },
+    order: async (req, res) => {
+        try {
+            const ViewOrder = await Order.find({})
+            return res.status(200).json({
+                status: true,
+                data: {
+                    ViewOrder
                 }
             })
         } catch (error) {
