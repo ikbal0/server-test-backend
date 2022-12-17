@@ -41,7 +41,7 @@ module.exports = {
                 status: true,
                 data: {
                     cart: [
-                        { "id": 1, "product_name": "Sausages",    "icon": "sausage",    "total": { "USD": 3.69, "NOK": 26.68 }, "type": "meat", "qty": 2}
+                        { "id": 1, "product_name": "Sausages",    "icon": "sausage",  "price": { "USD": 3.69, "NOK": 26.68 },  "total": { "USD": 3.69, "NOK": 26.68 }, "type": "meat", "qty": 2}
                     ]  
                 }
             })
