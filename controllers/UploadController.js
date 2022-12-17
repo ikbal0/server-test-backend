@@ -39,5 +39,35 @@ module.exports = {
                 message: error
             })
         }
+    },
+    cart: async (req, res) => {
+        try {
+            const body = req.body
+            // const images = new Images({
+            //     name: naming,
+            // });
+            // const savedImages = await images.save()
+            return res.status(200).json({
+                status: true,
+                message: 'Upload success',
+                data: {
+                    // file: savedImages
+                    body: body
+                }
+            })
+            // console.log(req.files)
+            // return res.status(200).json({
+            //     status: true,
+            //     message: 'Upload success',
+            //     data: {
+            //         file: req.body
+            //     }
+            // })
+        } catch (error) {
+            return res.status(500).json({
+                status: false,
+                message: error
+            })
+        }
     }
 }
