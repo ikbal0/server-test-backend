@@ -59,14 +59,6 @@ module.exports = {
                 message: 'Post success',
                 data: savedCart
             })
-            // console.log(req.files)
-            // return res.status(200).json({
-            //     status: true,
-            //     message: 'Upload success',
-            //     data: {
-            //         file: req.body
-            //     }
-            // })
         } catch (error) {
             return res.status(500).json({
                 status: false,
@@ -77,20 +69,18 @@ module.exports = {
     order: async (req, res) => {
         try {
             const body = req.body
-            // const cart = new Cart({
-                const order = new Order({
-                    ItemData: body.ItemData,
-                    status: body.status,
-                    total_order: body.total_order
-                })
-            //     product_name: body.name,
-            //     icon: body.icon,
-            //     price: body.price,
-            //     qty: body.qty,
-            //     total: body.total,
-            //     type: body.type
-            // });
+            const order = new Order({
+                ItemData: body.ItemData,
+                status: body.status,
+                total_order: body.total_order
+            })
+            
             const savedOrder = await order.save()
+            Cart.deleteMany({}).then(() => {
+                console.log('data delete')
+            }).catch(err => {
+                console.log(err)
+            })
             return res.status(200).json({
                 status: true,
                 message: 'Post success',
