@@ -1,3 +1,4 @@
+const Cart = require('../models/cart')
 const Images = require('../models/image')
 
 module.exports = {
@@ -36,10 +37,11 @@ module.exports = {
     },
     cart: async (req, res) => {
         try {
-            const viewImages = await Images.find({})
+            const ViewCarts = await Cart.find({})
             return res.status(200).json({
                 status: true,
                 data: {
+                    ViewCarts,
                     cart: [
                         { "id": 1, "product_name": "Sausages",    "icon": "sausage",  "price": { "USD": 3.69, "NOK": 26.68 },  "total": { "USD": 3.69, "NOK": 26.68 }, "type": "meat", "qty": 2}
                     ]  
