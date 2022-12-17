@@ -4,7 +4,8 @@ const router = express.Router();
 const fs = require('fs')
 const path = require('path')
 const sharp = require('sharp')
-const Image = require('../models/image')
+const Image = require('../models/image');
+const order = require('../models/order');
 
 router.get('/:id', async (req, res) => {
     const id = req.params.id
@@ -68,8 +69,12 @@ router.patch('/:id', async (req, res) => {
 router.patch('/order/:id', async (req, res) => {
     const id = req.params.id
     try {
+        const orderUp = await order.findOne({_id:id}).exec()
+        Object.assign(orderUp, {
+            status: 'sended',
+        });
+        await orderUp.save();
         
-
         return res.status(200).json({
             status: true,
             message: 'Edit success' + id,
