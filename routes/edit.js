@@ -65,4 +65,22 @@ router.patch('/:id', async (req, res) => {
     }
 })
 
+router.patch('/order/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        
+
+        return res.status(200).json({
+            status: true,
+            message: 'Edit success' + id,
+            // image: image
+        })
+    } catch (error) {
+        return res.status(500).json({
+            status: false,
+            message: error
+        })
+    }
+})
+
 module.exports = router;
