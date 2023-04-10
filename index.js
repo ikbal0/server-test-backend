@@ -9,7 +9,7 @@ const fileUpload = require('express-fileupload');
 const express = require('express');
 
 const app = express();
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 .use(cors())
