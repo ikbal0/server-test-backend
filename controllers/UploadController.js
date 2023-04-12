@@ -24,6 +24,7 @@ module.exports = {
                 status: true,
                 message: 'Upload success',
                 data: {
+                    imageUrl:"https://server-image.up.railway.app/public/" + naming,
                     file: savedImages
                 }
             })
