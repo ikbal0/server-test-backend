@@ -5,6 +5,10 @@ const ImageSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    userId: {
+        type: Number,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Images', ImageSchema);
